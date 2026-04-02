@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UWF Neuroscience Research Cluster | HMCSE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-mark">NRC</span>
+        <span class="logo-text">UWF Neuroscience Research Cluster</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#grants">Funding</a></li>
+        <li><a href="#contact" class="nav-cta">Join Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="hero">
+    <canvas class="neural-canvas" id="neuralCanvas"></canvas>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        University of West Florida &mdash; Hal Marcus College of Science &amp; Engineering
+      </div>
+      <h1 class="hero-title">
+        Where Minds<br>
+        <em>Meet</em> the Brain
+      </h1>
+      <p class="hero-sub">
+        An interdisciplinary neuroscience research cluster advancing our understanding of brain health, cognition, neurodegeneration, and the computational architecture of the human mind.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="8">0</span>
+          <span class="stat-label">Faculty Investigators</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="3">0</span>
+          <span class="stat-label">Colleges</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-prefix="$" data-target="555" data-suffix="K+">$0</span>
+          <span class="stat-label">Active NIH Funding</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="30">0</span><span class="stat-suffix-inline">+</span>
+          <span class="stat-label">Years of Research</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#research" class="btn-primary">Explore Research</a>
+        <a href="#team" class="btn-ghost">Meet the Team</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- Mission Strip -->
+  <section class="mission-strip" id="mission">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-label">
+          <span class="section-tag">Our Mission</span>
+        </div>
+        <div class="mission-text">
+          <p>
+            The UWF Neuroscience Research Cluster unites investigators across biology, computational science, public health, and psychology to address the defining challenges in brain science. We share data, trainees, and ideas across departmental boundaries because the brain does not respect them.
+          </p>
+        </div>
+        <div class="mission-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">&#9650;</div>
+            <h4>Discovery</h4>
+            <p>Basic and translational research in neurodegeneration, cognition, and neural computation</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">&#9650;</div>
+            <h4>Training</h4>
+            <p>NIH-funded undergraduate and graduate mentorship through the NeuroNauts Scholars Program</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">&#9650;</div>
+            <h4>Translation</h4>
+            <p>Community engagement, clinical partnerships, and real-world impact in Northwest Florida</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Areas -->
+  <section class="research-section" id="research">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Research</span>
+        <h2>Converging on the Brain<br>from Every Direction</h2>
+        <p>Our investigators span four domains that together offer a comprehensive lens on how the nervous system works, fails, adapts, and heals.</p>
+      </div>
+
+      <div class="research-areas">
+
+        <div class="area-card" style="--accent: #4fc3f7;">
+          <div class="area-number">01</div>
+          <div class="area-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="12" stroke="currentColor" stroke-width="2"/>
+              <circle cx="30" cy="30" r="4" fill="currentColor" opacity="0.6"/>
+              <path d="M30 6 Q42 18 42 30 Q42 42 30 54" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <path d="M30 6 Q18 18 18 30 Q18 42 30 54" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+              <line x1="6" y1="30" x2="54" y2="30" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>Neurodegeneration &amp; Alzheimer's Disease</h3>
+          <p>Biomarker discovery via phage display, calpain proteolysis, tau biology, and oxidative stress pathways. Spatial epidemiology of AD mortality clustering. Clinical biomarker development for early detection.</p>
+          <div class="area-tags">
+            <span>Tau Biology</span>
+            <span>Phage Display</span>
+            <span>Biomarkers</span>
+            <span>Calpain</span>
+          </div>
+        </div>
+
+        <div class="area-card" style="--accent: #a5d6a7;">
+          <div class="area-number">02</div>
+          <div class="area-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="20" width="40" height="20" rx="4" stroke="currentColor" stroke-width="2"/>
+              <line x1="10" y1="30" x2="54" y2="30" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              <path d="M6 30 Q12 20 18 30 Q24 40 30 30 Q36 20 42 30 Q48 40 54 30" stroke="currentColor" stroke-width="2" fill="none"/>
+              <circle cx="30" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="30" y1="16" x2="30" y2="20" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Cognitive &amp; Computational Neuroscience</h3>
+          <p>Neural signal decoding, prefrontal cortex dynamics, working memory systems, EEG-based biomarkers for cognitive impairment, machine learning models of brain function, and flash visual evoked potentials.</p>
+          <div class="area-tags">
+            <span>EEG</span>
+            <span>Working Memory</span>
+            <span>Neural Decoding</span>
+            <span>Machine Learning</span>
+          </div>
+        </div>
+
+        <div class="area-card" style="--accent: #ffcc80;">
+          <div class="area-number">03</div>
+          <div class="area-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 40 C20 28 26 20 30 20 C34 20 40 28 40 40" stroke="currentColor" stroke-width="2" fill="none"/>
+              <circle cx="30" cy="20" r="4" fill="currentColor" opacity="0.5"/>
+              <circle cx="15" cy="45" r="5" stroke="currentColor" stroke-width="2"/>
+              <circle cx="45" cy="45" r="5" stroke="currentColor" stroke-width="2"/>
+              <line x1="20" y1="45" x2="40" y2="45" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Cellular &amp; Developmental Neuroscience</h3>
+          <p>Cellular mechanisms underlying neural circuit formation, synaptogenesis, and neuroplasticity. Parkinson's disease models and exercise-induced neuroprotection. Neural regeneration and neurogenesis research.</p>
+          <div class="area-tags">
+            <span>Neuroplasticity</span>
+            <span>Parkinson's</span>
+            <span>Neurogenesis</span>
+            <span>Synaptogenesis</span>
+          </div>
+        </div>
+
+        <div class="area-card" style="--accent: #f48fb1;">
+          <div class="area-number">04</div>
+          <div class="area-icon">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="20" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+              <circle cx="30" cy="30" r="10" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+              <circle cx="30" cy="30" r="3" fill="currentColor"/>
+              <circle cx="15" cy="18" r="3" fill="currentColor" opacity="0.6"/>
+              <circle cx="45" cy="18" r="3" fill="currentColor" opacity="0.6"/>
+              <circle cx="15" cy="42" r="3" fill="currentColor" opacity="0.6"/>
+              <circle cx="45" cy="42" r="3" fill="currentColor" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3>Community Neuroscience &amp; Health Disparities</h3>
+          <p>Stroke prevention, brain health equity across underserved communities in Northwest Florida, community-based participatory research, and population-level surveillance of neurological conditions.</p>
+          <div class="area-tags">
+            <span>Stroke</span>
+            <span>Health Equity</span>
+            <span>Disparities</span>
+            <span>Community Health</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="team-section" id="team">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-tag">The Team</span>
+        <h2>Founded on<br>Shared Curiosity</h2>
+        <p>Our cluster brings together leading investigators whose work, combined, spans the full arc of neuroscience &mdash; from molecule to community.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="member-card featured">
+          <div class="member-photo-placeholder" style="--color:#4fc3f7;">
+            <span>RG</span>
+          </div>
+          <div class="member-info">
+            <div class="member-role">Cluster Director &bull; Founding Investigator</div>
+            <h3>Rodney Guttmann, Ph.D.</h3>
+            <div class="member-dept">Professor &amp; Interim Chair, Dept. of Biology &bull; HMCSE</div>
+            <p class="member-bio">Over 30 years of NIH-funded research in Alzheimer's disease biomarker discovery, calpain proteolysis, tau biology, and phage display technology. Holds two U.S. patents and has mentored more than 100 undergraduate researchers. PI of the NIH R25 NeuroNauts Scholars Program (NINDS, $555,237).</p>
+            <div class="member-tags">
+              <span>Alzheimer's Disease</span>
+              <span>Phage Display</span>
+              <span>Tau Biology</span>
+              <span>NIH Funded</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo-placeholder" style="--color:#a5d6a7;">
+            <span>SP</span>
+          </div>
+          <div class="member-info">
+            <div class="member-role">Co-Founder &bull; Computational Lead</div>
+            <h3>Shusen Pu, Ph.D.</h3>
+            <div class="member-dept">Department of Mathematics &amp; Statistics &bull; HMCSE</div>
+            <p class="member-bio">Computational neuroscientist specializing in prefrontal cortex dynamics, neural signal decoding, and the mathematics of working memory. Applies machine learning and stochastic modeling to understand how neural populations encode and transform information in the absence of task execution.</p>
+            <div class="member-tags">
+              <span>Computational Neuroscience</span>
+              <span>Neural Decoding</span>
+              <span>PFC Dynamics</span>
+              <span>Machine Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo-placeholder" style="--color:#ffcc80;">
+            <span>PC</span>
+          </div>
+          <div class="member-info">
+            <div class="member-role">Co-Founder &bull; Cellular Neuroscience</div>
+            <h3>Peter Cavnar, Ph.D.</h3>
+            <div class="member-dept">Department of Biology &bull; HMCSE</div>
+            <p class="member-bio">Cellular and developmental neuroscientist investigating the molecular mechanisms of neural circuit formation and synaptic function. Research bridges fundamental cell biology with neural system behavior, providing essential mechanistic grounding for translational neuroscience initiatives within the cluster.</p>
+            <div class="member-tags">
+              <span>Cellular Neuroscience</span>
+              <span>Synaptogenesis</span>
+              <span>Neural Circuits</span>
+              <span>Neuroplasticity</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="member-photo-placeholder" style="--color:#f48fb1;">
+            <span>DT</span>
+          </div>
+          <div class="member-info">
+            <div class="member-role">Co-Founder &bull; Public Health Neuroscience</div>
+            <h3>Daudet Ilunga Tshiswaka, Ph.D.</h3>
+            <div class="member-dept">Department of Public Health &bull; Halsa School of Health</div>
+            <p class="member-bio">Public health researcher focused on brain health disparities, stroke prevention, and community-based health interventions in underserved populations across Northwest Florida. Expertise in participatory research, health surveillance, and the social determinants of neurological outcomes.</p>
+            <div class="member-tags">
+              <span>Stroke</span>
+              <span>Health Disparities</span>
+              <span>Community Research</span>
+              <span>Brain Health Equity</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="team-more">
+        <p>Additional investigators across UWF's colleges of Arts &amp; Social Sciences and Health Sciences are joining the cluster. <a href="#contact">Interested in collaborating?</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="publications-section" id="publications">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Selected Publications</span>
+        <h2>Recent Work</h2>
+        <p>Peer-reviewed contributions from cluster investigators. This page will be updated on an ongoing basis as new work is accepted.</p>
+      </div>
+
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <div class="pub-year">2025</div>
+          <div class="pub-content">
+            <div class="pub-type">Journal Article</div>
+            <h4>Spatial and Space-Time Clusters of Alzheimer's Disease Mortality in the Contiguous United States, 2011&ndash;2020</h4>
+            <p class="pub-authors">Guttmann R, Amin R &bull; <em>In revision</em></p>
+            <div class="pub-tags"><span>Alzheimer's</span><span>Spatial Epidemiology</span><span>Mortality</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-content">
+            <div class="pub-type">Journal Article</div>
+            <h4>Prefrontal Neuronal Dynamics in the Absence of Task Execution</h4>
+            <p class="pub-authors">Pu S et al.</p>
+            <div class="pub-tags"><span>Computational Neuroscience</span><span>Prefrontal Cortex</span><span>Working Memory</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2024</div>
+          <div class="pub-content">
+            <div class="pub-type">Journal Article</div>
+            <h4>Areal Specific Neuronal Subspace Transformation in the Absence of Task Execution</h4>
+            <p class="pub-authors">Pu S et al.</p>
+            <div class="pub-tags"><span>Neural Subspace</span><span>Cortical Dynamics</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-content">
+            <div class="pub-type">Journal Article</div>
+            <h4>The Effect of Wavelength on the Variability of the Flash Visual Evoked Potential P2: A Potential Biomarker for Mild Cognitive Impairment and Alzheimer's Dementia</h4>
+            <p class="pub-authors">Guttmann R, Rainey V, Arruda J et al.</p>
+            <div class="pub-tags"><span>VEP</span><span>Biomarker</span><span>MCI</span><span>Alzheimer's</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-year">2023</div>
+          <div class="pub-content">
+            <div class="pub-type">Book Chapter / Report</div>
+            <h4>Spatial and Space-Time Clusters of Brain Tumor and CNS Incidence and Mortality in the Contiguous USA, 2000&ndash;2014</h4>
+            <p class="pub-authors">Guttmann R, Amin R</p>
+            <div class="pub-tags"><span>Spatial Epidemiology</span><span>CNS Tumors</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pub-footer">
+        <a href="#" class="btn-outline">View All Publications</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grants & Funding -->
+  <section class="grants-section" id="grants">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-tag">Funding &amp; Grants</span>
+        <h2>Externally Funded,<br>Nationally Recognized</h2>
+      </div>
+
+      <div class="grants-grid">
+
+        <div class="grant-card active">
+          <div class="grant-badge">Active</div>
+          <div class="grant-agency">NIH / NINDS</div>
+          <h4>NeuroNauts Scholars Program</h4>
+          <p>R25 award supporting undergraduate research training in neuroscience, with emphasis on diversity, mentorship, and translational brain science. Launching Summer 2026.</p>
+          <div class="grant-meta">
+            <span class="grant-amount">$555,237</span>
+            <span class="grant-period">5 Years</span>
+          </div>
+          <div class="grant-pi">PI: Guttmann</div>
+        </div>
+
+        <div class="grant-card active">
+          <div class="grant-badge">Active</div>
+          <div class="grant-agency">NIH</div>
+          <h4>Alzheimer's Disease Biomarker Discovery</h4>
+          <p>Continuous NIH funding supporting basic and translational research in Alzheimer's biomarker identification using phage display technology and calpain-mediated proteolysis.</p>
+          <div class="grant-meta">
+            <span class="grant-amount">Ongoing</span>
+            <span class="grant-period">30+ Years</span>
+          </div>
+          <div class="grant-pi">PI: Guttmann</div>
+        </div>
+
+        <div class="grant-card pending">
+          <div class="grant-badge pending-badge">In Development</div>
+          <div class="grant-agency">NSF / NIH</div>
+          <h4>ARGO-COMPANION Robotic Pet Initiative</h4>
+          <p>NSF Smart Health grant under development. AI-enabled robotic companions for cognitive engagement and mental health support in aging populations, with cross-disciplinary engineering and neuroscience collaboration.</p>
+          <div class="grant-meta">
+            <span class="grant-amount">TBD</span>
+            <span class="grant-period">Pending</span>
+          </div>
+          <div class="grant-pi">PI Team: Guttmann &amp; collaborators</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NeuroNauts Callout -->
+  <section class="neuronauts-callout">
+    <div class="container">
+      <div class="callout-inner">
+        <div class="callout-text">
+          <span class="section-tag light-tag">NIH R25 Program</span>
+          <h3>NeuroNauts Scholars Program</h3>
+          <p>
+            The NeuroNauts Scholars Program is a NINDS-funded research training initiative designed to immerse undergraduates in authentic neuroscience research experiences, with a commitment to broadening participation and training the next generation of brain scientists.
+          </p>
+          <a href="https://uwf.edu" class="btn-primary">Learn More &rarr;</a>
+        </div>
+        <div class="callout-visual">
+          <div class="callout-ring ring-1"></div>
+          <div class="callout-ring ring-2"></div>
+          <div class="callout-ring ring-3"></div>
+          <div class="callout-center">
+            <span>NeuroNauts</span>
+            <em>Scholars Program</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Presentations / News -->
+  <section class="news-section" id="news">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">News &amp; Presentations</span>
+        <h2>In the Field</h2>
+        <p>Conferences, invited talks, and cluster news. Updated on a rolling basis.</p>
+      </div>
+
+      <div class="news-grid">
+        <div class="news-item">
+          <div class="news-date">2026</div>
+          <div class="news-content">
+            <span class="news-type">Program Launch</span>
+            <h4>NeuroNauts Scholars Program Launches Summer 2026</h4>
+            <p>UWF's first NIH R25-funded undergraduate neuroscience training cohort begins summer activities, with students placed in faculty labs across the cluster.</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          <div class="news-content">
+            <span class="news-type">Grant Award</span>
+            <h4>NIH R25 NeuroNauts Award Announced</h4>
+            <p>NINDS awards $555,237 over five years to the UWF NeuroNauts Scholars Program, with an impact score of 31 &mdash; a landmark milestone for UWF neuroscience research training.</p>
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          <div class="news-content">
+            <span class="news-type">Cluster Formation</span>
+            <h4>UWF Neuroscience Research Cluster Established</h4>
+            <p>Faculty from three UWF colleges formally establish the Neuroscience Research Cluster as a cross-campus interdisciplinary entity within HMCSE, with plans for ongoing growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Join -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <span class="section-tag light-tag">Connect</span>
+          <h2>Join the Cluster</h2>
+          <p>
+            We welcome inquiries from UWF faculty, prospective students, community partners, and collaborators at other institutions. Whether you are interested in joining as an affiliate investigator, pursuing graduate or undergraduate research, or exploring community research partnerships &mdash; we want to hear from you.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <strong>Cluster Director</strong>
+              <span>Rodney Guttmann, Ph.D.</span>
+              <span>Department of Biology, HMCSE</span>
+              <a href="mailto:rguttmann@uwf.edu">rguttmann@uwf.edu</a>
+            </div>
+            <div class="contact-item">
+              <strong>Location</strong>
+              <span>University of West Florida</span>
+              <span>11000 University Pkwy, Pensacola, FL 32514</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-area">
+          <div class="form-card">
+            <h4>Get in Touch</h4>
+            <p class="form-note">This form is a design placeholder &mdash; the UWF webmaster will integrate institutional form handling.</p>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Your full name" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label>I am a...</label>
+              <select>
+                <option>UWF Faculty / Staff</option>
+                <option>UWF Student</option>
+                <option>External Researcher</option>
+                <option>Community / Industry Partner</option>
+                <option>Media</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell us about your interest or inquiry..." rows="4"></textarea>
+            </div>
+            <button class="btn-primary full-width">Send Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-mark">NRC</span>
+            <span>UWF Neuroscience Research Cluster</span>
+          </div>
+          <p>Hal Marcus College of Science &amp; Engineering<br>University of West Florida<br>Pensacola, Florida</p>
+          <p class="footer-draft-note">&#9888; Draft &mdash; For internal review and webmaster guidance only.</p>
+        </div>
+        <div class="footer-nav">
+          <h5>Site</h5>
+          <ul>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#research">Research Areas</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#grants">Funding</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>UWF</h5>
+          <ul>
+            <li><a href="https://uwf.edu/hmcse" target="_blank">HMCSE</a></li>
+            <li><a href="https://uwf.edu/biology" target="_blank">Dept. of Biology</a></li>
+            <li><a href="https://uwf.edu" target="_blank">University of West Florida</a></li>
+            <li><a href="https://nih.gov" target="_blank">NIH &rarr;</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 University of West Florida Neuroscience Research Cluster. All rights reserved.</p>
+        <p>DRAFT VERSION &mdash; Not for public distribution.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
