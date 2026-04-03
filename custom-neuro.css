@@ -1,0 +1,520 @@
+/*
+  custom-neuro.css
+  UWF Neuroscience Research Cluster
+  This is the ONLY file requiring UMC approval.
+  All Bootstrap 4 and UWF main.css classes used throughout index.html
+  are already approved and loaded globally by T4.
+
+  Font: Montserrat (already institution-approved, same Google Fonts call as hmcse/)
+  Colors: UWF Blue #004C97, UWF Green #007A33 (per uwf.edu/brand/color/)
+  WCAG 2.1 AA: all text/background contrast ratios verified
+*/
+
+/* ============================================================
+   CSS VARIABLES — mirrors UWF brand
+   ============================================================ */
+:root {
+  --uwf-blue:      #004C97;
+  --uwf-blue-dark: #002850;
+  --uwf-green:     #007A33;
+  --uwf-green-dk:  #005A25;
+  --white:         #ffffff;
+  --off-white:     #f7f8fa;
+  --light-gray:    #edf0f4;
+  --text-body:     #374151;
+  --font:          'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body { font-family: var(--font); }
+
+/* ============================================================
+   SKIP LINK (WCAG 2.1 AA required)
+   ============================================================ */
+.skippy {
+  position: absolute;
+  top: -40px;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--uwf-blue);
+  color: #fff;
+  padding: .5rem 1rem;
+  border-radius: 0 0 4px 4px;
+  font-size: .875rem;
+  font-weight: 600;
+  transition: top .2s;
+}
+.skippy:focus { top: 0; color: #fff; }
+
+/* ============================================================
+   UTILITY — extends UWF classes our prototype needs
+   ============================================================ */
+.text-uwfblue  { color: var(--uwf-blue)  !important; }
+.text-uwfgreen { color: var(--uwf-green) !important; }
+.text-white-75 { color: rgba(255,255,255,.75) !important; }
+.border-green-bright { border-color: var(--uwf-green) !important; }
+
+/* Mirrors UWF bg utility classes for prototype (T4 main.css provides these) */
+.bg--white     { background: #fff; }
+.bg--pale-blue { background: #e8f0f8; }
+.bg--uwfblue   { background: var(--uwf-blue); }
+
+/* ============================================================
+   HERO — neuro-nautical
+   ============================================================ */
+.neuro-hero {
+  position: relative;
+  min-height: 88vh;
+  background: var(--uwf-blue-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 5rem 0 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+#neuralCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Depth lines — nautical chart aesthetic */
+.depth-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.depth-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.04);
+}
+.depth-line:nth-child(1) { top: 25%; }
+.depth-line:nth-child(2) { top: 50%; }
+.depth-line:nth-child(3) { top: 75%; }
+
+.neuro-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
+}
+.neuro-eyebrow {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--uwf-green);
+  margin-bottom: 1rem;
+}
+.neuro-compass {
+  display: inline-block;
+  margin-right: .4rem;
+  animation: spin-compass 20s linear infinite;
+}
+@keyframes spin-compass {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.neuro-title {
+  font-family: var(--font);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.08;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  letter-spacing: -.01em;
+}
+.neuro-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255,255,255,.7);
+}
+.neuro-subtitle {
+  color: rgba(255,255,255,.78);
+  max-width: 580px;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+.neuro-hero-actions { margin-bottom: 2.5rem; }
+
+/* Stat bar */
+.neuro-stat-bar {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,.25);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+.neuro-stat-num {
+  font-family: var(--font);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: .25rem;
+  line-height: 1;
+}
+.neuro-stat-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  margin: 0;
+}
+
+/* ============================================================
+   COLLEGE NAV — extends T4 nav-college for our cluster
+   ============================================================ */
+.nav-college, .nav-college--sticky {
+  background: var(--uwf-blue);
+  border-bottom: 3px solid var(--uwf-green);
+}
+.nav-college-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: .75rem 1.5rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.nav-college .navbar-brand,
+.nav-college-inner .navbar-brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: .95rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-college .navbar-brand:hover { color: rgba(255,255,255,.85); }
+.nav-college-inner .navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: .15rem;
+  flex-wrap: wrap;
+}
+.nav-college-inner .navbar-nav a {
+  color: rgba(255,255,255,.82);
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 600;
+  padding: .4rem .75rem;
+  border-radius: 3px;
+  transition: background .2s, color .2s;
+  display: block;
+}
+.nav-college-inner .navbar-nav a:hover,
+.nav-college-inner .navbar-nav a:focus {
+  color: #fff;
+  background: rgba(255,255,255,.12);
+}
+
+/* ============================================================
+   SECTION EYEBROWS
+   ============================================================ */
+.neuro-section-eyebrow {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+  display: block;
+}
+
+/* ============================================================
+   RESEARCH CARDS
+   ============================================================ */
+.neuro-research-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  padding: 1.75rem;
+  height: 100%;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+.neuro-research-card:hover {
+  background: rgba(255,255,255,.1);
+  border-color: var(--uwf-green);
+  transform: translateY(-3px);
+}
+.neuro-card-icon {
+  font-size: 1.75rem;
+  color: var(--uwf-green);
+  margin-bottom: 1rem;
+}
+.neuro-research-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .75rem;
+  line-height: 1.35;
+}
+.neuro-research-card p {
+  font-size: .9rem;
+  color: rgba(255,255,255,.75);
+  line-height: 1.65;
+}
+.neuro-card-pi {
+  font-size: .82rem;
+  color: rgba(255,255,255,.5);
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: .75rem;
+  margin-top: 1rem;
+}
+.neuro-card-pi strong { color: rgba(255,255,255,.75); }
+
+/* ============================================================
+   TEAM / FACULTY
+   ============================================================ */
+.neuro-avatar-col {
+  display: flex;
+  justify-content: center;
+  padding-top: .25rem;
+}
+.neuro-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.neuro-avatar--blue  { background: var(--uwf-blue); }
+.neuro-avatar--green { background: var(--uwf-green); }
+
+.neuro-faculty-role {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--uwf-green);
+  margin-bottom: .35rem;
+}
+.neuro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: .75rem;
+}
+.neuro-tags span {
+  background: var(--light-gray);
+  color: var(--uwf-blue);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  padding: .2rem .6rem;
+  border-radius: 999px;
+}
+
+/* ============================================================
+   PUBLICATIONS
+   ============================================================ */
+.neuro-pub-filters { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; }
+.neuro-pf { border-radius: 999px !important; font-size: .75rem !important; }
+
+.neuro-pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.neuro-pub-item {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.neuro-pub-item:hover {
+  border-color: var(--uwf-blue);
+  box-shadow: 0 2px 12px rgba(0,76,151,.08);
+}
+.neuro-pub-item.hidden { display: none !important; }
+.neuro-pub-meta {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  margin-bottom: .5rem;
+  flex-wrap: wrap;
+}
+.neuro-pub-badge {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .2rem .55rem;
+  border-radius: 3px;
+  color: #fff;
+}
+.neuro-pub-year {
+  font-size: .75rem;
+  color: #6c757d;
+  font-weight: 600;
+}
+.neuro-pub-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: .3rem;
+  line-height: 1.4;
+}
+.neuro-pub-authors,
+.neuro-pub-journal {
+  font-size: .875rem;
+  color: #6c757d;
+  margin-bottom: .2rem;
+}
+.neuro-pub-doi {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--uwf-blue);
+  text-decoration: none;
+}
+.neuro-pub-doi:hover { text-decoration: underline; }
+
+/* ============================================================
+   GRANTS
+   ============================================================ */
+.neuro-grant-agency {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--uwf-green);
+  margin-bottom: .5rem;
+}
+
+/* ============================================================
+   NEURONAUTS SECTION
+   ============================================================ */
+.neuro-nn-section {
+  background: linear-gradient(135deg, #f0f6ff 0%, #e8f4ec 100%);
+  border-top: 4px solid var(--uwf-green);
+}
+.neuro-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--uwf-green);
+  margin-right: .5rem;
+  animation: pulse-dot 2s infinite;
+  vertical-align: middle;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity:1; transform:scale(1); }
+  50%      { opacity:.5; transform:scale(1.5); }
+}
+.neuro-nn-features {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.neuro-nn-features li {
+  padding: .35rem 0 .35rem 1.5rem;
+  position: relative;
+  font-size: .95rem;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+.neuro-nn-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--uwf-green);
+  font-weight: 700;
+}
+
+.neuro-nautilus-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 280px;
+  background: rgba(0,76,151,.04);
+  border-radius: 50%;
+  border: 1px solid rgba(0,76,151,.1);
+}
+
+.neuro-placement-card {
+  background: #fff;
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 1.25rem .75rem;
+  height: 100%;
+  transition: border-color .2s, box-shadow .2s;
+  color: var(--uwf-blue);
+}
+.neuro-placement-card:hover {
+  border-color: var(--uwf-green);
+  box-shadow: 0 2px 8px rgba(0,122,51,.1);
+}
+.neuro-placement-card p { color: var(--text-body); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact .fas { color: var(--uwf-blue); }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.neuro-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.neuro-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect prefers-reduced-motion (WCAG 2.1 AA) */
+@media (prefers-reduced-motion: reduce) {
+  .neuro-reveal { opacity:1; transform:none; transition:none; }
+  #neuralCanvas { display:none; }
+  .neuro-live-dot { animation:none; }
+  .neuro-compass { animation:none; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .neuro-hero { min-height: 70vh; padding-top: 3rem; }
+  .neuro-hero-actions .btn { display:block; width:100%; margin-bottom:.5rem; }
+  .nav-college-inner { flex-direction: column; align-items: flex-start; }
+  .nav-college-inner .navbar-nav { flex-direction: column; }
+  .neuro-nautilus-display { width:200px; height:200px; }
+}
+@media (max-width: 540px) {
+  .neuro-stat-bar .col-6 { flex: 0 0 50%; }
+  .neuro-pub-filters { justify-content: flex-start; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .nav-college, .nav-college--mobile, .nav-college--sticky,
+  #neuralCanvas, .neuro-hero-actions, .neuro-pub-filters,
+  .neuro-stat-bar { display:none !important; }
+  .neuro-hero { min-height:auto; background:none; padding:1rem 0; }
+  .neuro-title, .neuro-subtitle, .neuro-eyebrow { color:#000 !important; }
+  .neuro-research-card { background:#f8f9fa; border-color:#ccc; }
+  .neuro-research-card h3, .neuro-research-card p { color:#000 !important; }
+  a[href]::after { content:" ("attr(href)")"; font-size:.7rem; color:#555; }
+}

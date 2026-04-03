@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Neuroscience Research Cluster | University of West Florida</title>
+  <meta name="description" content="The UWF Neuroscience Research Cluster unites six interdisciplinary laboratories to chart the frontiers of brain science — from molecule to community." />
+
+  <!-- ============================================================
+  WEBMASTER NOTES (remove before launch):
+  - Replace this <head> block with UWF's standard T4 header includes
+  - UWF global header/nav replaces everything above <nav class="nav-college">
+  - Font: Montserrat is already approved institution-wide (same Google Fonts call as hmcse/)
+  - Bootstrap 4 + main.css are loaded globally by T4 — remove CDN links below
+  - Font Awesome kit (a098e44fc9) is loaded globally — remove CDN link below
+  - GTM, UserWay, BrightEdge, Slate scripts are injected by T4 automatically
+  - custom-neuro.css is the ONLY file needing UMC approval
+  - canvas neural animation in app-neuro.js needs UMC JS vetting
+  ============================================================ -->
+
+  <!-- Google Fonts: Montserrat (matches UWF institutional font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 4 (loaded globally by T4 via main.css — CDN here for prototype only) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome (loaded globally by T4 — CDN here for prototype only) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Cluster custom styles (submit to websupport@uwf.edu for approval) -->
+  <link rel="stylesheet" href="custom-neuro.css">
+</head>
+<body class="college--alt">
+
+  <!-- ============================================================
+  WEBMASTER: UWF global header and mobile menu go here (T4 injects automatically)
+  The nav-college block below is what your department controls.
+  ============================================================ -->
+
+  <!-- SKIP LINK (required, WCAG 2.1 AA) -->
+  <a class="skippy" href="#main-content">Skip to main content</a>
+
+  <!-- COLLEGE NAV — mobile (mirrors T4 pattern exactly) -->
+  <nav class="nav-college--mobile sticky-top bg-tertiary" aria-label="College navigation mobile">
+    <a class="navbar-brand" href="/hmcse/">Hal Marcus College of Science and Engineering</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+      data-target="#navbarNeuro" aria-controls="navbarNeuro"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNeuro">
+      <ul class="navbar-nav">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#grants">Grants</a></li>
+        <li><a href="#neuronauts">NeuroNauts</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- JUMBOTRON HERO — mirrors T4 jumbotron-image pattern -->
+  <section aria-label="Neuroscience Research Cluster hero">
+    <div class="jumbotron jumbotron-fluid jumbotron-image neuro-hero">
+      <canvas id="neuralCanvas" aria-hidden="true" focusable="false"></canvas>
+      <!-- Nautical depth lines (decorative) -->
+      <div class="depth-lines" aria-hidden="true">
+        <div class="depth-line"></div>
+        <div class="depth-line"></div>
+        <div class="depth-line"></div>
+      </div>
+      <div class="container">
+        <div class="neuro-hero-content">
+          <p class="neuro-eyebrow">
+            <span class="neuro-compass" aria-hidden="true">&#9737;</span>
+            Hal Marcus College of Science &amp; Engineering &nbsp;&bull;&nbsp; University of West Florida
+          </p>
+          <h1 class="neuro-title">Neuroscience<br><em>Research Cluster</em></h1>
+          <p class="neuro-subtitle lead">Six laboratories. One mission. Charting the frontiers of brain science — from the Gulf Coast to the leading edge of discovery.</p>
+          <div class="neuro-hero-actions">
+            <a href="#research" class="btn btn-primary btn-lg mr-2">Explore Our Science</a>
+            <a href="#neuronauts" class="btn btn-outline-light btn-lg">NeuroNauts Scholars</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat bar — mirrors UWF infographic pattern -->
+      <div class="neuro-stat-bar">
+        <div class="container">
+          <div class="row justify-content-center text-center">
+            <div class="col-6 col-md-3 neuro-stat">
+              <p class="neuro-stat-num" data-target="7">0</p>
+              <p class="neuro-stat-label">Investigators</p>
+            </div>
+            <div class="col-6 col-md-3 neuro-stat">
+              <p class="neuro-stat-num" data-target="30" data-suffix="+">0</p>
+              <p class="neuro-stat-label">Active Student Researchers</p>
+            </div>
+            <div class="col-6 col-md-3 neuro-stat">
+              <p class="neuro-stat-num" data-target="5" data-prefix="$" data-suffix="M+">0</p>
+              <p class="neuro-stat-label">Active Grant Funding</p>
+            </div>
+            <div class="col-6 col-md-3 neuro-stat">
+              <p class="neuro-stat-num" data-target="30" data-suffix="+">0</p>
+              <p class="neuro-stat-label">Years Continuous NIH Funding</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLEGE NAV — desktop sticky (mirrors T4 nav-college--sticky) -->
+  <nav class="nav-college nav-college--sticky" aria-label="College navigation">
+    <div class="nav-college-inner">
+      <a class="navbar-brand" href="/hmcse/departments/biology/">
+        UWF Neuroscience Research Cluster
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#grants">Grants</a></li>
+        <li><a href="#neuronauts">NeuroNauts</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container applied" id="main-content">
+
+    <!-- MISSION LEAD — mirrors T4 .lead pattern -->
+    <div class="row no-gutters my-4">
+      <div class="offset-xl-1 col-lg-8 col-xl-7">
+        <p class="lead">The UWF Neuroscience Research Cluster navigates the full complexity of the brain — from the molecular signals that go wrong in Alzheimer's disease to the community-level forces that drive stroke disparities across the Gulf South. Seven investigators. Six colleges. One shared chart.</p>
+      </div>
+      <div class="offset-lg-1 col-lg-3 mt-1 mt-lg-2">
+        <a href="#neuronauts" class="btn btn-primary mb-1 btn-block">NeuroNauts Scholars</a>
+        <a href="#team" class="btn btn-outline-primary mb-1 btn-block">Meet the Team</a>
+        <a href="#contact" class="btn btn-secondary mb-1 btn-block">Contact Us</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FULL WIDTH CONTENT — matches T4 #fullwidth pattern -->
+  <div id="fullwidth" role="complementary">
+
+    <!-- ============================================================
+    RESEARCH PILLARS — uses T4 panel--blue pattern
+    ============================================================ -->
+    <div class="panel panel--blue pt-4 pb-5" id="research" aria-labelledby="research-heading">
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-12 text-center">
+            <p class="neuro-section-eyebrow text-white-50">
+              <i class="fas fa-compass mr-2" aria-hidden="true"></i>Charting Our Course
+            </p>
+            <h2 id="research-heading" class="mt-0 text-white">Six Lines of Inquiry</h2>
+            <p class="lead text-white-75">Every great voyage begins with a chart. Ours spans molecule to community.</p>
+          </div>
+        </div>
+
+        <div class="row grid--slider">
+
+          <div class="col-md-4 mb-4">
+            <article class="neuro-research-card" aria-label="Alzheimer's Disease research">
+              <div class="neuro-card-icon" aria-hidden="true">
+                <i class="fas fa-brain"></i>
+              </div>
+              <h3>Neurodegeneration &amp; Alzheimer's Disease</h3>
+              <p>Investigating calpain-mediated tau proteolysis, phage display biomarker discovery, and the spatial epidemiology of Alzheimer's mortality across the United States. More than 30 years of continuous NIH funding.</p>
+              <p class="neuro-card-pi">
+                <i class="fas fa-anchor mr-1" aria-hidden="true"></i>
+                <strong>Rodney Guttmann, Ph.D.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <article class="neuro-research-card" aria-label="Computational Neuroscience research">
+              <div class="neuro-card-icon" aria-hidden="true">
+                <i class="fas fa-wave-square"></i>
+              </div>
+              <h3>Computational Neuroscience &amp; Neural Dynamics</h3>
+              <p>Decoding prefrontal cortex activity during working memory using machine learning, stochastic modeling of ion channel noise, and mathematical frameworks for how neural networks encode information.</p>
+              <p class="neuro-card-pi">
+                <i class="fas fa-anchor mr-1" aria-hidden="true"></i>
+                <strong>Shusen Pu, Ph.D.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <article class="neuro-research-card" aria-label="Cellular Signaling research">
+              <div class="neuro-card-icon" aria-hidden="true">
+                <i class="fas fa-microscope"></i>
+              </div>
+              <h3>Cellular &amp; Molecular Signaling</h3>
+              <p>Characterizing HAX1 and HS1 cytoskeletal dynamics in neutrophils, neuro-immune interactions via dopamine receptor signaling, and antipsychotic drug effects — with direct implications for neurological disease.</p>
+              <p class="neuro-card-pi">
+                <i class="fas fa-anchor mr-1" aria-hidden="true"></i>
+                <strong>Peter Cavnar, Ph.D.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <article class="neuro-research-card" aria-label="Developmental Neuroscience research">
+              <div class="neuro-card-icon" aria-hidden="true">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h3>Developmental &amp; Cognitive Neuroscience</h3>
+              <p>Using EEG to study sensory processing in ASD and ADHD, exploring visual working memory in applied settings, and investigating how bilingualism and executive function interact across the lifespan.</p>
+              <p class="neuro-card-pi">
+                <i class="fas fa-anchor mr-1" aria-hidden="true"></i>
+                <strong>Rainey, Ph.D. &amp; Blalock, Ph.D.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <article class="neuro-research-card" aria-label="Exercise Neuroscience research">
+              <div class="neuro-card-icon" aria-hidden="true">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <h3>Exercise Neuroscience &amp; Neuroprotection</h3>
+              <p>Elucidating how endurance exercise protects the brain through autophagy and mitophagy pathways — with direct applications to Alzheimer's and Parkinson's disease prevention and metabolic-distress-induced neurodegeneration.</p>
+              <p class="neuro-card-pi">
+                <i class="fas fa-anchor mr-1" aria-hidden="true"></i>
+                <strong>Youngil Lee, Ph.D.</strong>
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <article class="neuro-research-card" aria-label="Stroke Disparities research">
+              <div class="neuro-card-icon" aria-hidden="true">
+                <i class="fas fa-map-marked-alt"></i>
+              </div>
+              <h3>Stroke &amp; Brain Health Disparities</h3>
+              <p>Examining racial, geographic, and socioeconomic disparities in stroke mortality across Florida and the nation, studying stroke education interventions in Black and Hispanic communities, and tracking healthcare equity among survivors.</p>
+              <p class="neuro-card-pi">
+                <i class="fas fa-anchor mr-1" aria-hidden="true"></i>
+                <strong>Daudet Ilunga Tshiswaka, Ph.D.</strong>
+              </p>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    TEAM — uses T4 fw--columns alternating pattern
+    ============================================================ -->
+    <div class="fw--columns py-5 bg--white" id="team" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <p class="neuro-section-eyebrow text-uwfblue">
+              <i class="fas fa-users mr-2" aria-hidden="true"></i>The Fleet
+            </p>
+            <h2 id="team-heading" class="mt-0">Meet Our Investigators</h2>
+            <p class="lead">Seven faculty from four UWF colleges, united by a shared passion for brain science.</p>
+          </div>
+        </div>
+
+        <!-- Guttmann -->
+        <div class="alternating row justify-content-center mb-4 pb-4 border-bottom">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--blue" aria-hidden="true">RG</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Cluster Director &bull; Principal Investigator, NeuroNauts</div>
+            <h3 class="h4 mt-1">Rodney Guttmann, Ph.D.</h3>
+            <p class="text-muted small mb-2">Professor &amp; Interim Chair, Biology &bull; Hal Marcus College of Science and Engineering</p>
+            <p>Dr. Guttmann has dedicated more than 30 years to Alzheimer's disease research, maintaining continuous NIH funding throughout his career. His laboratory pioneered phage display approaches to biomarker discovery and has contributed landmark findings on calpain-mediated tau proteolysis. A two-term department chair and former director of UWF's Center on Aging, he has mentored more than 100 undergraduate researchers and hosted a weekly NPR aging segment for over a decade. He holds two U.S. patents.</p>
+            <div class="neuro-tags">
+              <span>Alzheimer's Disease</span>
+              <span>Tau Biology</span>
+              <span>Spatial Epidemiology</span>
+              <span>Biomarker Discovery</span>
+            </div>
+            <p class="mt-2 mb-0 small"><i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:rguttmann@uwf.edu">rguttmann@uwf.edu</a></p>
+          </div>
+        </div>
+
+        <!-- Pu -->
+        <div class="alternating row justify-content-center mb-4 pb-4 border-bottom">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--blue" aria-hidden="true">SP</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Co-Founder &bull; Computational Lead</div>
+            <h3 class="h4 mt-1">Shusen Pu, Ph.D.</h3>
+            <p class="text-muted small mb-2">Assistant Professor, Mathematics &amp; Statistics &bull; Hal Marcus College of Science and Engineering</p>
+            <p>An applied mathematician turned neuroscientist, Dr. Pu develops stochastic models and machine learning frameworks to decode how the prefrontal cortex encodes working memory. His work — published in <em>Nature Communications</em> and <em>Neural Computation</em> — bridges the gap between individual neuron dynamics and large-scale cognitive function. A 2024 Faculty Excellence in Undergraduate Research Mentoring Award recipient and 2024 SGA Distinguished Teaching Award winner, he mentors more than 30 students in the Computational Statistics and Data Analytics Lab, and served as a plenary speaker at the 2025 Joint Annual Meetings of the MAA-Florida Section.</p>
+            <div class="neuro-tags">
+              <span>Computational Neuroscience</span>
+              <span>Machine Learning</span>
+              <span>Working Memory</span>
+              <span>Stochastic Modeling</span>
+            </div>
+            <p class="mt-2 mb-0 small">
+              <i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:spu@uwf.edu">spu@uwf.edu</a>
+              &nbsp;&bull;&nbsp;
+              <i class="fas fa-globe mr-1" aria-hidden="true"></i><a href="https://www.shusenpu.com" target="_blank" rel="noopener noreferrer">shusenpu.com</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Cavnar -->
+        <div class="alternating row justify-content-center mb-4 pb-4 border-bottom">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--green" aria-hidden="true">PC</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Co-Founder &bull; Cell Biology</div>
+            <h3 class="h4 mt-1">Peter Cavnar, Ph.D.</h3>
+            <p class="text-muted small mb-2">Associate Professor &amp; Associate Dean &bull; Hal Marcus College of Science and Engineering</p>
+            <p>Dr. Cavnar's research sits at the intersection of cell biology and neuroscience, investigating how cytoskeletal regulatory proteins like HAX1 and HS1 govern cell motility and survival, and how dopamine receptor signaling in neutrophils illuminates neuro-immune pathways relevant to psychiatric and neurological disease. He has mentored more than 35 undergraduate and graduate students and co-led UWF's NIH U-RISE program for a decade. As former Chair of Biology and a Howard Hughes Medical Institute Scientific Teaching Fellow, he has fundamentally reshaped undergraduate science education at UWF.</p>
+            <div class="neuro-tags">
+              <span>Cytoskeletal Dynamics</span>
+              <span>Neuro-Immune Interactions</span>
+              <span>Neutrophil Biology</span>
+              <span>Antipsychotic Pharmacology</span>
+            </div>
+            <p class="mt-2 mb-0 small"><i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:pcavnar@uwf.edu">pcavnar@uwf.edu</a></p>
+          </div>
+        </div>
+
+        <!-- Tshiswaka -->
+        <div class="alternating row justify-content-center mb-4 pb-4 border-bottom">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--blue" aria-hidden="true">DT</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Co-Founder &bull; Public Health Neuroscience</div>
+            <h3 class="h4 mt-1">Daudet Ilunga Tshiswaka, Ph.D.</h3>
+            <p class="text-muted small mb-2">Associate Professor, Public Health &bull; Usha Kundu College of Health</p>
+            <p>Dr. Tshiswaka examines the social and structural forces that drive disparities in stroke mortality, healthcare access, and brain health outcomes — particularly in Black, Hispanic, and immigrant communities. A Visiting Assistant Professor at Columbia University's Stroke Division from 2019 to 2023 and former Acting Chair of Public Health at UWF, he has led NIH/NINDS-funded research on stroke literacy interventions and health equity across Florida's Panhandle. His work has appeared in <em>Stroke</em> (AHA), <em>Preventing Chronic Disease</em> (CDC), and the <em>Journal of Public Health</em>.</p>
+            <div class="neuro-tags">
+              <span>Stroke Disparities</span>
+              <span>Health Equity</span>
+              <span>Community Health</span>
+              <span>Immigrant Health</span>
+            </div>
+            <p class="mt-2 mb-0 small"><i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:dilunga@uwf.edu">dilunga@uwf.edu</a></p>
+          </div>
+        </div>
+
+        <!-- Rainey -->
+        <div class="alternating row justify-content-center mb-4 pb-4 border-bottom">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--blue" aria-hidden="true">VR</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Cognitive &amp; Developmental Neuroscience</div>
+            <h3 class="h4 mt-1">Vanessa Rainey, Ph.D.</h3>
+            <p class="text-muted small mb-2">Associate Professor, Psychology &bull; Usha Kundu College of Health</p>
+            <p>Dr. Rainey investigates sensory processing differences in autism spectrum disorder and ADHD using EEG, examining the neural underpinnings of attention, working memory, and language development. She explores how home environments, bilingualism, and cultural factors shape brain development across childhood and adolescence. Her work has been published in <em>Scholarship of Teaching and Learning in Psychology</em>, the <em>International Journal of Psychophysiology</em>, and <em>Psychophysiology</em>. She is co-authoring a major revision of a human development textbook (MacMillan) and is a committed champion of high-impact undergraduate mentorship.</p>
+            <div class="neuro-tags">
+              <span>ASD &amp; ADHD</span>
+              <span>EEG/Neuroimaging</span>
+              <span>Sensory Processing</span>
+              <span>Language &amp; Cognition</span>
+            </div>
+            <p class="mt-2 mb-0 small">
+              <i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:vrainey@uwf.edu">vrainey@uwf.edu</a>
+              &nbsp;&bull;&nbsp;
+              <i class="fas fa-globe mr-1" aria-hidden="true"></i><a href="https://cogdevlab.uwf.edu" target="_blank" rel="noopener noreferrer">cogdevlab.uwf.edu</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Blalock -->
+        <div class="alternating row justify-content-center mb-4 pb-4 border-bottom">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--green" aria-hidden="true">LB</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Applied Cognition &amp; Visual Memory</div>
+            <h3 class="h4 mt-1">Lisa Blalock, Ph.D.</h3>
+            <p class="text-muted small mb-2">Professor &amp; Chair, Psychology &bull; Usha Kundu College of Health</p>
+            <p>Dr. Blalock's research centers on visual working memory — how people store, maintain, and retrieve visual information — and how training can build visual expertise. Using rigorous behavioral experiments, she investigates encoding, maintenance, and retrieval with applications ranging from eyewitness testimony reliability to educational design and user interface usability. She is a contributor to the forthcoming <em>Oxford Handbook of Undergraduate Psychology Education</em> (2nd edition) and is known for pedagogical innovation that translates cognitive science into real-world strategies.</p>
+            <div class="neuro-tags">
+              <span>Visual Working Memory</span>
+              <span>Applied Cognition</span>
+              <span>Visual Expertise</span>
+              <span>Educational Psychology</span>
+            </div>
+            <p class="mt-2 mb-0 small"><i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:lblalock@uwf.edu">lblalock@uwf.edu</a></p>
+          </div>
+        </div>
+
+        <!-- Lee -->
+        <div class="alternating row justify-content-center mb-4">
+          <div class="col-sm-2 col-lg-1 neuro-avatar-col">
+            <div class="neuro-avatar neuro-avatar--blue" aria-hidden="true">YL</div>
+          </div>
+          <div class="col-sm-10 col-lg-9 fw--col-content">
+            <div class="neuro-faculty-role">Exercise Neuroscience</div>
+            <h3 class="h4 mt-1">Youngil Lee, Ph.D.</h3>
+            <p class="text-muted small mb-2">Professor, Kinesiology &bull; Hal Marcus College of Science and Engineering</p>
+            <p>Dr. Lee investigates how endurance exercise protects the brain and heart through autophagy and mitophagy — the cellular processes that clear dysfunctional proteins and organelles. His research demonstrates that regular physical activity can mitigate neurodegenerative diseases including Alzheimer's and Parkinson's, and counteract metabolic-distress-induced senescence in the hippocampus. Published in <em>Medicine &amp; Science in Sports &amp; Exercise</em>, the <em>Journal of Molecular Neuroscience</em>, and <em>Life Sciences</em>, his work has direct translational implications for aging brain health. He is a 2024 to 2027 Reubin O'D. Askew Institute for Multidiscipline Studies Fellow at UWF.</p>
+            <div class="neuro-tags">
+              <span>Exercise Neuroprotection</span>
+              <span>Autophagy/Mitophagy</span>
+              <span>Neurodegeneration Prevention</span>
+              <span>Metabolic Disease</span>
+            </div>
+            <p class="mt-2 mb-0 small"><i class="fas fa-envelope mr-1" aria-hidden="true"></i><a href="mailto:ylee@uwf.edu">ylee@uwf.edu</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================
+    PUBLICATIONS — uses T4 bg--pale-blue + grid--slider pattern
+    ============================================================ -->
+    <div class="py-5 bg--pale-blue" id="publications" aria-labelledby="pub-heading">
+      <div class="container">
+        <div class="row mb-3">
+          <div class="col-12 text-center">
+            <p class="neuro-section-eyebrow text-uwfblue">
+              <i class="fas fa-scroll mr-2" aria-hidden="true"></i>Dispatches from the Deep
+            </p>
+            <h2 id="pub-heading" class="mt-0">Selected Publications</h2>
+            <p class="lead">Peer-reviewed science from our cluster's laboratories.</p>
+          </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="neuro-pub-filters mb-4 text-center" role="group" aria-label="Filter publications by laboratory">
+          <button class="btn btn-primary btn-sm neuro-pf active" data-filter="all">All Labs</button>
+          <button class="btn btn-outline-primary btn-sm neuro-pf" data-filter="guttmann">Guttmann</button>
+          <button class="btn btn-outline-primary btn-sm neuro-pf" data-filter="pu">Pu</button>
+          <button class="btn btn-outline-primary btn-sm neuro-pf" data-filter="cavnar">Cavnar</button>
+          <button class="btn btn-outline-primary btn-sm neuro-pf" data-filter="tshiswaka">Tshiswaka</button>
+          <button class="btn btn-outline-primary btn-sm neuro-pf" data-filter="rainey">Rainey</button>
+          <button class="btn btn-outline-primary btn-sm neuro-pf" data-filter="lee">Lee</button>
+        </div>
+
+        <div class="neuro-pub-list" id="pub-list" aria-label="Publication list">
+
+          <article class="neuro-pub-item" data-lab="pu">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#C8102E;">Nature Communications</span>
+              <span class="neuro-pub-year">2024</span>
+            </div>
+            <p class="neuro-pub-title">Prefrontal Neuronal Dynamics in the Absence of Task Execution</p>
+            <p class="neuro-pub-authors">Pu S, Dang W, Qi XL, Constantinidis C.</p>
+            <p class="neuro-pub-journal"><em>Nature Communications</em> 15(1):6694, 2024.</p>
+            <a href="https://doi.org/10.1038/s41467-024-50717-y" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41467-024-50717-y <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="cavnar">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#1DA462;">PLOS One</span>
+              <span class="neuro-pub-year">2025</span>
+            </div>
+            <p class="neuro-pub-title">Characterization of the Atypical Antipsychotic Drug Aripiprazole Cytotoxicity in the Neutrophil Model Cell Line HL-60</p>
+            <p class="neuro-pub-authors">Swain CA, Robbs EJ, Verma L, Brandt H, Seppaenen AL, Cavnar PJ.</p>
+            <p class="neuro-pub-journal"><em>PLOS One</em> 20(2):e0318878, 2025.</p>
+            <a href="https://doi.org/10.1371/journal.pone.0318878" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">DOI: 10.1371/journal.pone.0318878 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="lee">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#004C97;">Med Sci Sports Exerc</span>
+              <span class="neuro-pub-year">2023</span>
+            </div>
+            <p class="neuro-pub-title">Exercise-Induced Antisenescence and Autophagy Restoration Mitigate Metabolic Disorder-Induced Cardiac Disruption in Mice</p>
+            <p class="neuro-pub-authors">Ko J, Jang YC, Quindry J, Guttmann R, Cosio-Lima L, Powers SK, Lee Y.</p>
+            <p class="neuro-pub-journal"><em>Medicine &amp; Science in Sports &amp; Exercise</em> 55(3):376–388, 2023.</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/36251370/" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">PMID: 36251370 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="guttmann">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#92400E;">In Revision</span>
+              <span class="neuro-pub-year">2025</span>
+            </div>
+            <p class="neuro-pub-title">Spatial and Space-Time Clusters of Alzheimer's Disease Mortality in the United States, 2011–2020</p>
+            <p class="neuro-pub-authors">Guttmann R, Amin R.</p>
+            <p class="neuro-pub-journal">Manuscript under revision, 2025.</p>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="tshiswaka">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#00543E;">Prev Chronic Disease (CDC)</span>
+              <span class="neuro-pub-year">2021</span>
+            </div>
+            <p class="neuro-pub-title">Stroke Disparities in Florida: Examining the Relationship Between County Classification, Age-Adjusted Stroke Mortality Rates, and the Presence of Primary Stroke Centers</p>
+            <p class="neuro-pub-authors">Ilunga Tshiswaka D, Murphy C, Whembolua GL, Williams O.</p>
+            <p class="neuro-pub-journal"><em>Preventing Chronic Disease</em> 18:200561, 2021.</p>
+            <a href="https://www.cdc.gov/pcd/issues/2021/20_0561.htm" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">PMID: 34114545 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="tshiswaka">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#D9241A;">Stroke (AHA)</span>
+              <span class="neuro-pub-year">2018</span>
+            </div>
+            <p class="neuro-pub-title">Historical Slavery and Modern-Day Stroke Mortality in the United States Stroke Belt</p>
+            <p class="neuro-pub-authors">Esenwa C, Ilunga Tshiswaka D, Gebregziabher M, Ovbiagele B.</p>
+            <p class="neuro-pub-journal"><em>Stroke</em>, 2018.</p>
+            <a href="https://doi.org/10.1161/STROKEAHA.117.020169" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">DOI: 10.1161/STROKEAHA.117.020169 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="rainey">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#6B46C1;">Scholarship Teach Learn Psych</span>
+              <span class="neuro-pub-year">2024</span>
+            </div>
+            <p class="neuro-pub-title">Recognition and Implications of Sensory Differences in the College Classroom from a Psychological Perspective</p>
+            <p class="neuro-pub-authors">Rainey VR, Barthes H, Halonen JS.</p>
+            <p class="neuro-pub-journal"><em>Scholarship of Teaching and Learning in Psychology</em>, advance online, 2024.</p>
+            <a href="https://doi.org/10.1037/stl0000420" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">DOI: 10.1037/stl0000420 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="rainey">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#0D7BE5;">Intl J Psychophysiology</span>
+              <span class="neuro-pub-year">2021</span>
+            </div>
+            <p class="neuro-pub-title">The Effect of Wavelength on the Variability of the Flash Visual Evoked Potential P2: A Potential Biomarker for Mild Cognitive Impairment and Alzheimer's Dementia</p>
+            <p class="neuro-pub-authors">Rainey VR, Black E, Wade A, Martin A.</p>
+            <p class="neuro-pub-journal"><em>International Journal of Psychophysiology</em> 164:23–29, 2021.</p>
+            <a href="https://doi.org/10.1016/j.ijpsycho.2021.02.011" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.ijpsycho.2021.02.011 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="lee">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#004C97;">J Molecular Neuroscience</span>
+              <span class="neuro-pub-year">2021</span>
+            </div>
+            <p class="neuro-pub-title">Endurance Exercise-Induced Autophagy/Mitophagy Coincides with a Reinforced Anabolic State and Increased Mitochondrial Turnover in the Cortex of the Mouse Brain</p>
+            <p class="neuro-pub-authors">Kwon I, Jang Y, Lee Y.</p>
+            <p class="neuro-pub-journal"><em>Journal of Molecular Neuroscience</em> 71:42–54, 2021.</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/32535714/" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">PMID: 32535714 <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+          </article>
+
+          <article class="neuro-pub-item" data-lab="cavnar">
+            <div class="neuro-pub-meta">
+              <span class="neuro-pub-badge" style="background:#374151;">J Biological Chemistry</span>
+              <span class="neuro-pub-year">2012</span>
+            </div>
+            <p class="neuro-pub-title">The Actin Regulatory Protein HS1 Interacts with Arp2/3 and Mediates Efficient Neutrophil Chemotaxis</p>
+            <p class="neuro-pub-authors">Cavnar PJ, Mogen K, Berthier E, Beebe DJ, Huttenlocher A.</p>
+            <p class="neuro-pub-journal"><em>Journal of Biological Chemistry</em>, 2012.</p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    GRANTS — uses T4 bg--uwfblue pattern
+    ============================================================ -->
+    <div class="py-5 bg--uwfblue text-white" id="grants" aria-labelledby="grants-heading">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <p class="neuro-section-eyebrow" style="color:rgba(255,255,255,0.6);">
+              <i class="fas fa-ship mr-2" aria-hidden="true"></i>The Expeditions
+            </p>
+            <h2 id="grants-heading" class="mt-0">Active &amp; Recent Grants</h2>
+          </div>
+        </div>
+        <div class="row grid--slider">
+
+          <div class="col-md-4 border-right px-md-3 mb-4">
+            <p class="neuro-grant-agency">NIH / NINDS &bull; R25</p>
+            <h3 class="h5">NeuroNauts Scholars Program</h3>
+            <p class="small text-white-75"><strong>$555,237</strong> over 5 years &bull; Impact Score: 31 &bull; Launching June 2026</p>
+            <p class="small text-white-75">Intensive NIH-funded summer research training for high school students across all cluster laboratories.</p>
+            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Guttmann &bull; Co-PIs: Pu, Cavnar, Tshiswaka, Rainey, Blalock, Lee</p>
+          </div>
+
+          <div class="col-md-4 border-right px-md-3 mb-4">
+            <p class="neuro-grant-agency">NIH / NIA &bull; R01</p>
+            <h3 class="h5">Alzheimer's Disease Biomarker &amp; Neurodegeneration Research</h3>
+            <p class="small text-white-75"><strong>~$440,000</strong> &bull; Active — Year 5 of 6 (renewed 2024)</p>
+            <p class="small text-white-75">Investigating tau proteolysis, calpain signaling, and phage display biomarker discovery. More than 30 years of continuous NIH funding.</p>
+            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Guttmann</p>
+          </div>
+
+          <div class="col-md-4 px-md-3 mb-4">
+            <p class="neuro-grant-agency">HRSA &bull; Implementation Grant</p>
+            <h3 class="h5">Community Health Worker Training Program</h3>
+            <p class="small text-white-75"><strong>$3,000,000</strong> &bull; 2022–2025</p>
+            <p class="small text-white-75">Equipping minority community health workers with training to address health disparities across Northwest Florida.</p>
+            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Tshiswaka</p>
+          </div>
+
+          <div class="col-md-4 border-right px-md-3 mb-4">
+            <p class="neuro-grant-agency">FL Dept. of Health &bull; Cancer Innovation Fund</p>
+            <h3 class="h5">NWF Collaborative to Reduce Breast Cancer Disparities</h3>
+            <p class="small text-white-75"><strong>$895,906</strong> &bull; Active since Jan. 2024</p>
+            <p class="small text-white-75">Addressing cancer mortality disparities across 18 rural counties in Northwest Florida through evaluation and monitoring.</p>
+            <p class="small" style="color:rgba(255,255,255,0.5);">Evaluation Lead: Tshiswaka</p>
+          </div>
+
+          <div class="col-md-4 border-right px-md-3 mb-4">
+            <p class="neuro-grant-agency">NIH / NINDS &bull; Diversity Supplement</p>
+            <h3 class="h5">Research Supplement to Promote Diversity in Neuroscience</h3>
+            <p class="small text-white-75"><strong>$434,197</strong> &bull; 2013–2018</p>
+            <p class="small text-white-75">Supporting diversity in neurological research with community-level stroke literacy interventions in high-disparity populations.</p>
+            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Tshiswaka</p>
+          </div>
+
+          <div class="col-md-4 px-md-3 mb-4">
+            <p class="neuro-grant-agency">UWF / AIMS Fellowship</p>
+            <h3 class="h5">Reubin O'D. Askew Institute Fellowship</h3>
+            <p class="small text-white-75"><strong>Active</strong> &bull; 2024–2027</p>
+            <p class="small text-white-75">Interdisciplinary fellowship supporting exercise-induced neuroprotection research and its applications to Alzheimer's and Parkinson's disease prevention.</p>
+            <p class="small" style="color:rgba(255,255,255,0.5);">Fellow: Lee</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    NEURONAUTS — uses T4 fw--columns alternating pattern
+    ============================================================ -->
+    <div class="fw--columns py-5 neuro-nn-section" id="neuronauts" aria-labelledby="nn-heading">
+      <div class="container">
+        <div class="row justify-content-center mb-1 my-md-3">
+
+          <div class="col-sm-6 col-lg-5 fw--col-image my-1 d-flex align-items-center justify-content-center">
+            <!-- Nautilus SVG illustration — neuro-nautical theme -->
+            <div class="neuro-nautilus-display" aria-hidden="true">
+              <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" width="260" height="260">
+                <!-- Outer glow -->
+                <defs>
+                  <radialGradient id="shellGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#007A33" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#004C97" stop-opacity="0"/>
+                  </radialGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+                <circle cx="150" cy="150" r="145" fill="url(#shellGlow)"/>
+                <!-- Nautilus spiral -->
+                <path d="M150,150 Q180,80 230,100 Q280,120 260,170 Q240,220 190,230 Q140,240 110,200 Q80,160 100,120 Q120,80 160,90 Q200,100 195,135 Q190,170 160,175 Q130,180 120,155 Q110,130 130,120 Q150,110 158,128 Q166,146 150,150" 
+                      fill="none" stroke="#004C97" stroke-width="2.5" filter="url(#glow)" stroke-linecap="round"/>
+                <!-- Neural nodes along spiral -->
+                <circle cx="230" cy="100" r="5" fill="#007A33" opacity="0.8"/>
+                <circle cx="260" cy="170" r="4" fill="#007A33" opacity="0.7"/>
+                <circle cx="190" cy="230" r="4" fill="#007A33" opacity="0.7"/>
+                <circle cx="110" cy="200" r="3" fill="#004C97" opacity="0.6"/>
+                <circle cx="100" cy="120" r="3" fill="#004C97" opacity="0.6"/>
+                <circle cx="160" cy="90" r="3" fill="#004C97" opacity="0.5"/>
+                <circle cx="195" cy="135" r="2.5" fill="#007A33" opacity="0.5"/>
+                <circle cx="160" cy="175" r="2" fill="#007A33" opacity="0.5"/>
+                <circle cx="120" cy="155" r="2" fill="#004C97" opacity="0.4"/>
+                <circle cx="130" cy="120" r="1.5" fill="#004C97" opacity="0.4"/>
+                <circle cx="158" cy="128" r="1.5" fill="#007A33" opacity="0.4"/>
+                <circle cx="150" cy="150" r="4" fill="#004C97"/>
+                <!-- Connecting lines (neural connections) -->
+                <line x1="230" y1="100" x2="260" y2="170" stroke="#007A33" stroke-width="0.8" opacity="0.3"/>
+                <line x1="260" y1="170" x2="190" y2="230" stroke="#007A33" stroke-width="0.8" opacity="0.3"/>
+                <line x1="190" y1="230" x2="110" y2="200" stroke="#004C97" stroke-width="0.8" opacity="0.3"/>
+                <line x1="110" y1="200" x2="100" y2="120" stroke="#004C97" stroke-width="0.8" opacity="0.3"/>
+                <!-- Compass rose -->
+                <g transform="translate(150,150)" opacity="0.12">
+                  <line x1="0" y1="-135" x2="0" y2="135" stroke="#004C97" stroke-width="1"/>
+                  <line x1="-135" y1="0" x2="135" y2="0" stroke="#004C97" stroke-width="1"/>
+                  <line x1="-95" y1="-95" x2="95" y2="95" stroke="#004C97" stroke-width="0.5"/>
+                  <line x1="95" y1="-95" x2="-95" y2="95" stroke="#004C97" stroke-width="0.5"/>
+                </g>
+                <!-- Label -->
+                <text x="150" y="285" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="10" fill="#004C97" opacity="0.6" font-weight="600" letter-spacing="3">NEURO NAUTS</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-5 fw--col-content">
+            <p class="neuro-section-eyebrow text-uwfgreen">
+              <span class="neuro-live-dot" aria-hidden="true"></span>
+              Now Recruiting &bull; Launching June 2026
+            </p>
+            <h2 id="nn-heading" class="h3 mt-1">NeuroNauts Scholars Program</h2>
+            <p class="lead">An intensive, NIH-funded summer research experience that brings high school students into working neuroscience laboratories at UWF.</p>
+            <p>This is not a camp. NeuroNauts scholars work side-by-side with undergraduate and graduate researchers in one of our six cluster laboratories — designing experiments, collecting and analyzing real data, presenting findings, and leaving with a scientific identity that sets them apart.</p>
+            <ul class="neuro-nn-features">
+              <li>Hands-on research in active NIH-funded laboratories</li>
+              <li>Mentorship from faculty, graduate, and undergraduate researchers</li>
+              <li>Training across EEG, cell culture, computational modeling, behavioral experiments, and community health methods</li>
+              <li>Weekly journal clubs and scientific communication workshops</li>
+              <li>Final symposium presentation for faculty and family</li>
+            </ul>
+            <div class="row mt-3">
+              <div class="col-12 col-sm-6 mb-2">
+                <a href="mailto:rguttmann@uwf.edu?subject=NeuroNauts%20Scholars%20Inquiry" class="btn btn-primary btn-block">Apply / Inquire</a>
+              </div>
+              <div class="col-12 col-sm-6 mb-2">
+                <a href="#contact" class="btn btn-outline-primary btn-block">Program Questions</a>
+              </div>
+            </div>
+            <p class="small text-muted mt-2">Funded by NIH/NINDS R25 &bull; $555,237 over 5 years &bull; Impact Score: 31</p>
+          </div>
+
+        </div>
+
+        <!-- Lab placements grid -->
+        <div class="row justify-content-center mt-4">
+          <div class="col-lg-10">
+            <h3 class="h5 text-center mb-3">Research Areas Available to Scholars</h3>
+            <div class="row text-center">
+              <div class="col-6 col-md-4 mb-3">
+                <div class="neuro-placement-card">
+                  <i class="fas fa-brain fa-2x mb-2" aria-hidden="true"></i>
+                  <p class="small mb-0">Alzheimer's Disease &amp; Biomarkers</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 mb-3">
+                <div class="neuro-placement-card">
+                  <i class="fas fa-wave-square fa-2x mb-2" aria-hidden="true"></i>
+                  <p class="small mb-0">Computational Neuroscience &amp; Machine Learning</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 mb-3">
+                <div class="neuro-placement-card">
+                  <i class="fas fa-microscope fa-2x mb-2" aria-hidden="true"></i>
+                  <p class="small mb-0">Cellular Signaling &amp; Neuro-Immune Biology</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 mb-3">
+                <div class="neuro-placement-card">
+                  <i class="fas fa-network-wired fa-2x mb-2" aria-hidden="true"></i>
+                  <p class="small mb-0">EEG &amp; Sensory Processing in ASD/ADHD</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 mb-3">
+                <div class="neuro-placement-card">
+                  <i class="fas fa-heartbeat fa-2x mb-2" aria-hidden="true"></i>
+                  <p class="small mb-0">Exercise Neuroprotection &amp; Brain Aging</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 mb-3">
+                <div class="neuro-placement-card">
+                  <i class="fas fa-map-marked-alt fa-2x mb-2" aria-hidden="true"></i>
+                  <p class="small mb-0">Stroke Disparities &amp; Community Health</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    CONTACT — uses T4 bg--white + grid--slider pattern
+    ============================================================ -->
+    <div class="py-5 bg--white" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-8">
+            <p class="neuro-section-eyebrow text-uwfblue">
+              <i class="fas fa-satellite-dish mr-2" aria-hidden="true"></i>Hail the Bridge
+            </p>
+            <h2 id="contact-heading" class="mt-0">Connect With Our Cluster</h2>
+          </div>
+        </div>
+        <div class="row grid--slider">
+
+          <div class="col-md-4 border-right border-green-bright mb-4">
+            <i class="fas fa-user-graduate fa-2x text-uwfblue mb-3" aria-hidden="true"></i>
+            <h3 class="h5">Prospective Students</h3>
+            <p>High school students interested in NeuroNauts, or UWF undergraduates seeking a research home in one of our laboratories.</p>
+            <p><strong>Contact:</strong> <a href="mailto:rguttmann@uwf.edu">rguttmann@uwf.edu</a></p>
+            <p class="small text-muted">Subject: "Student Research Inquiry"</p>
+          </div>
+
+          <div class="col-md-4 border-right border-green-bright mb-4">
+            <i class="fas fa-handshake fa-2x text-uwfblue mb-3" aria-hidden="true"></i>
+            <h3 class="h5">Faculty &amp; Collaborators</h3>
+            <p>Researchers at other institutions interested in collaborative projects, data sharing, or co-mentorship opportunities with our cluster.</p>
+            <p><strong>Contact:</strong> <a href="mailto:rguttmann@uwf.edu">rguttmann@uwf.edu</a></p>
+            <p class="small text-muted">Subject: "Collaboration Inquiry"</p>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <i class="fas fa-microphone-alt fa-2x text-uwfblue mb-3" aria-hidden="true"></i>
+            <h3 class="h5">Community &amp; Media</h3>
+            <p>Community partners, healthcare organizations, and media seeking expert commentary on aging, brain health, stroke disparities, and neuroscience.</p>
+            <p><strong>UWF News:</strong> <a href="mailto:news@uwf.edu">news@uwf.edu</a></p>
+            <p class="small text-muted">850.474.2000</p>
+          </div>
+
+        </div>
+        <!-- WEBMASTER: Replace below with Wufoo embed per UWF web governance policy -->
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="alert alert-warning small" role="alert">
+              <strong>Webmaster note:</strong> Per UWF web governance, insert a Wufoo contact form here. Contact websupport@uwf.edu for setup assistance.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    NAUTILUS FOOTER SECTION — uses actual UWF bg-nautilus class
+    ============================================================ -->
+    <div class="bg-nautilus bg-nautilus-border">
+      <div class="nautilus-shape nautilus-two" aria-hidden="true"></div>
+      <div class="nautilus-shape nautilus-four" aria-hidden="true"></div>
+      <div class="nautilus-combined" aria-hidden="true"></div>
+      <div class="container py-3">
+        <div class="row">
+          <div class="offset-lg-1 col-md-4 col-lg-3">
+            <h2 class="h6 mt-0">UWF Neuroscience Research Cluster</h2>
+            <p>11000 University Parkway<br>
+            Pensacola, FL 32514</p>
+            <p>
+              <a href="mailto:rguttmann@uwf.edu">rguttmann@uwf.edu</a><br>
+              <a href="tel:8504742000">850.474.2000</a>
+            </p>
+            <p class="small text-muted">Part of the <a href="/hmcse/">Hal Marcus College of Science and Engineering</a></p>
+          </div>
+          <div class="offset-lg-1 col-md-4 col-lg-3 mt-2 mt-md-0">
+            <h2 class="h6 mt-0">Quick Links</h2>
+            <ul>
+              <li><a href="#research">Research Areas</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#publications">Publications</a></li>
+              <li><a href="#grants">Grants</a></li>
+              <li><a href="#neuronauts">NeuroNauts Scholars</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 col-lg-3 mt-2 mt-md-0">
+            <h2 class="h6 mt-0">UWF Resources</h2>
+            <ul>
+              <li><a href="https://uwf.edu/research/" target="_blank" rel="noopener">UWF Research</a></li>
+              <li><a href="/hmcse/" target="_blank" rel="noopener">HMCSE</a></li>
+              <li><a href="https://ircommons.uwf.edu" target="_blank" rel="noopener">UWF Institutional Repository</a></li>
+              <li><a href="https://uwf.edu/go/electronic-information-technology-accessibility/" target="_blank" rel="noopener">Accessibility</a></li>
+            </ul>
+            <p class="small font-italic text-muted mt-3">DRAFT — Internal review only. Not approved for public distribution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+    WEBMASTER: UWF global footer goes here (T4 injects automatically)
+    ============================================================ -->
+
+  </div><!-- end #fullwidth -->
+
+  <!-- Bootstrap 4 JS (loaded globally by T4 — CDN here for prototype only) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Cluster custom JS (submit to websupport@uwf.edu for approval) -->
+  <script src="app-neuro.js"></script>
+</body>
+</html>
