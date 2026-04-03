@@ -10,7 +10,6 @@
 ## What's New in v2.1
 
 - All six faculty profiled in full with verified credentials from biosketches and CVs
-- James Arruda removed from all content
 - UWF web governance compliance review integrated (see section below)
 - WCAG 2.1 AA accessibility built in throughout (deadline: April 24, 2026)
 - Seven publications with verified DOIs/PMIDs
