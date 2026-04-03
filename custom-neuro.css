@@ -451,18 +451,23 @@ body { font-family: var(--font); }
 
 .neuro-placement-card {
   background: #fff;
-  border: 1px solid var(--light-gray);
+  border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 1.25rem .75rem;
   height: 100%;
-  transition: border-color .2s, box-shadow .2s;
-  color: var(--uwf-blue);
+  display: block;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  color: #374151;
 }
 .neuro-placement-card:hover {
   border-color: var(--uwf-green);
-  box-shadow: 0 2px 8px rgba(0,122,51,.1);
+  box-shadow: 0 4px 12px rgba(0,122,51,.12);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--uwf-blue);
 }
 .neuro-placement-card p { color: var(--text-body); }
+.x-small { font-size: .72rem; }
 
 /* ============================================================
    CONTACT
