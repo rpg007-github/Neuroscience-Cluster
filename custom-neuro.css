@@ -470,6 +470,45 @@ body { font-family: var(--font); }
 .x-small { font-size: .72rem; }
 
 /* ============================================================
+   RESEARCH SECTION — self-contained (replaces panel--blue for prototype)
+   T4: use Panel content type with panel--blue setting
+   ============================================================ */
+.neuro-research-section {
+  background: var(--uwf-blue-dark, #002850);
+  padding: 3rem 0 3.5rem;
+}
+
+/* ============================================================
+   GRANTS SECTION — self-contained (replaces bg--uwfblue for prototype)
+   T4: use Panel content type with bg--uwfblue setting
+   ============================================================ */
+.neuro-grants-section {
+  background: var(--uwf-blue, #004C97);
+  padding: 3rem 0 3.5rem;
+}
+.neuro-grant-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: background .25s, border-color .25s;
+}
+.neuro-grant-card:hover {
+  background: rgba(255,255,255,0.13);
+  border-color: var(--uwf-green, #007A33);
+}
+.neuro-grant-link {
+  font-size: .75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: .5rem;
+}
+.neuro-grant-link:hover { color: #fff; text-decoration: underline; }
+
+/* ============================================================
    CONTACT
    ============================================================ */
 #contact .fas { color: var(--uwf-blue); }
