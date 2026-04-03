@@ -152,24 +152,25 @@
   <div id="fullwidth" role="complementary">
 
     <!-- ============================================================
-    RESEARCH PILLARS — uses T4 panel--blue pattern
+    RESEARCH PILLARS — standalone prototype: explicit bg replaces panel--blue
+    T4 note: use Panel content type with panel--blue setting
     ============================================================ -->
-    <div class="panel panel--blue pt-4 pb-5" id="research" aria-labelledby="research-heading">
+    <div class="neuro-research-section" id="research" aria-labelledby="research-heading">
       <div class="container">
         <div class="row mb-3">
           <div class="col-12 text-center">
-            <p class="neuro-section-eyebrow text-white-50">
+            <p class="neuro-section-eyebrow" style="color:rgba(255,255,255,0.6);">
               <i class="fas fa-compass mr-2" aria-hidden="true"></i>Charting Our Course
             </p>
-            <h2 id="research-heading" class="mt-0 text-white">Six Lines of Inquiry</h2>
-            <p class="lead text-white-75">Every great voyage begins with a chart. Ours spans molecule to community.</p>
+            <h2 id="research-heading" class="mt-0" style="color:#fff;">Six Lines of Inquiry</h2>
+            <p class="lead" style="color:rgba(255,255,255,0.78);">Every great voyage begins with a chart. Ours spans molecule to community.</p>
           </div>
         </div>
 
-        <div class="row grid--slider">
+        <div class="row">
 
-          <div class="col-md-4 mb-4">
-            <article class="neuro-research-card" aria-label="Alzheimer's Disease research">
+          <div class="col-md-4 mb-4 d-flex">
+            <article class="neuro-research-card w-100" aria-label="Alzheimer's Disease research">
               <div class="neuro-card-icon" aria-hidden="true">
                 <i class="fas fa-brain"></i>
               </div>
@@ -182,8 +183,8 @@
             </article>
           </div>
 
-          <div class="col-md-4 mb-4">
-            <article class="neuro-research-card" aria-label="Computational Neuroscience research">
+          <div class="col-md-4 mb-4 d-flex">
+            <article class="neuro-research-card w-100" aria-label="Computational Neuroscience research">
               <div class="neuro-card-icon" aria-hidden="true">
                 <i class="fas fa-wave-square"></i>
               </div>
@@ -196,8 +197,8 @@
             </article>
           </div>
 
-          <div class="col-md-4 mb-4">
-            <article class="neuro-research-card" aria-label="Cellular Signaling research">
+          <div class="col-md-4 mb-4 d-flex">
+            <article class="neuro-research-card w-100" aria-label="Cellular Signaling research">
               <div class="neuro-card-icon" aria-hidden="true">
                 <i class="fas fa-microscope"></i>
               </div>
@@ -210,8 +211,8 @@
             </article>
           </div>
 
-          <div class="col-md-4 mb-4">
-            <article class="neuro-research-card" aria-label="Developmental Neuroscience research">
+          <div class="col-md-4 mb-4 d-flex">
+            <article class="neuro-research-card w-100" aria-label="Developmental Neuroscience research">
               <div class="neuro-card-icon" aria-hidden="true">
                 <i class="fas fa-network-wired"></i>
               </div>
@@ -224,8 +225,8 @@
             </article>
           </div>
 
-          <div class="col-md-4 mb-4">
-            <article class="neuro-research-card" aria-label="Exercise Neuroscience research">
+          <div class="col-md-4 mb-4 d-flex">
+            <article class="neuro-research-card w-100" aria-label="Exercise Neuroscience research">
               <div class="neuro-card-icon" aria-hidden="true">
                 <i class="fas fa-heartbeat"></i>
               </div>
@@ -238,8 +239,8 @@
             </article>
           </div>
 
-          <div class="col-md-4 mb-4">
-            <article class="neuro-research-card" aria-label="Stroke Disparities research">
+          <div class="col-md-4 mb-4 d-flex">
+            <article class="neuro-research-card w-100" aria-label="Stroke Disparities research">
               <div class="neuro-card-icon" aria-hidden="true">
                 <i class="fas fa-map-marked-alt"></i>
               </div>
@@ -531,12 +532,15 @@
 
           <article class="neuro-pub-item" data-lab="guttmann">
             <div class="neuro-pub-meta">
-              <span class="neuro-pub-badge" style="background:#92400E;">In Revision</span>
-              <span class="neuro-pub-year">2025</span>
+              <span class="neuro-pub-badge" style="background:#374151;">Brain Tumor &amp; CNS Epidemiology</span>
+              <span class="neuro-pub-year">2023</span>
             </div>
-            <p class="neuro-pub-title">Spatial and Space-Time Clusters of Alzheimer's Disease Mortality in the United States, 2011–2020</p>
-            <p class="neuro-pub-authors">Guttmann R, Amin R.</p>
-            <p class="neuro-pub-journal">Manuscript under revision, 2025.</p>
+            <p class="neuro-pub-title">Spatial and Space-Time Clusters of Brain Tumor and CNS Malignancies in the United States, 2000–2014</p>
+            <p class="neuro-pub-authors">Guttmann RP, Amin R.</p>
+            <p class="neuro-pub-journal">Published 2023.</p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/?term=guttmann+rp&sort=date" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">Search PubMed <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
+            &nbsp;&bull;&nbsp;
+            <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C1&q=guttmann+rp&btnG=" class="neuro-pub-doi" target="_blank" rel="noopener noreferrer">Google Scholar <i class="fas fa-external-link-alt fa-xs" aria-label="opens in new tab"></i></a>
           </article>
 
           <article class="neuro-pub-item" data-lab="tshiswaka">
@@ -609,66 +613,94 @@
     </div>
 
     <!-- ============================================================
-    GRANTS — uses T4 bg--uwfblue pattern
+    GRANTS — T4 note: use Panel content type with bg--uwfblue
+    Standalone prototype: explicit background replaces bg--uwfblue class
     ============================================================ -->
-    <div class="py-5 bg--uwfblue text-white" id="grants" aria-labelledby="grants-heading">
+    <div class="neuro-grants-section" id="grants" aria-labelledby="grants-heading">
       <div class="container">
         <div class="row mb-4">
           <div class="col-md-8">
             <p class="neuro-section-eyebrow" style="color:rgba(255,255,255,0.6);">
               <i class="fas fa-ship mr-2" aria-hidden="true"></i>The Expeditions
             </p>
-            <h2 id="grants-heading" class="mt-0">Active &amp; Recent Grants</h2>
+            <h2 id="grants-heading" class="mt-0" style="color:#fff;">Active &amp; Recent Grants</h2>
           </div>
         </div>
-        <div class="row grid--slider">
+        <div class="row">
 
-          <div class="col-md-4 border-right px-md-3 mb-4">
-            <p class="neuro-grant-agency">NIH / NINDS &bull; R25</p>
-            <h3 class="h5">NeuroNauts Scholars Program</h3>
-            <p class="small text-white-75"><strong>$555,237</strong> over 5 years &bull; Impact Score: 31 &bull; Launching June 2026</p>
-            <p class="small text-white-75">Intensive NIH-funded summer research training for high school students across all cluster laboratories.</p>
-            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Guttmann &bull; Co-PI: Schwartz &bull; Faculty: Pu, Cavnar, Tshiswaka, Rainey, Blalock, Lee</p>
+          <div class="col-md-4 mb-4">
+            <div class="neuro-grant-card">
+              <p class="neuro-grant-agency">NIH / NINDS &bull; R25</p>
+              <h3 class="h5">NeuroNauts Scholars Program</h3>
+              <p class="small" style="color:rgba(255,255,255,0.75);">
+                <strong>R25NS147367</strong> &bull; $555,237 over 5 years<br>
+                Impact Score: 31 &bull; Launching June 2026
+              </p>
+              <p class="small" style="color:rgba(255,255,255,0.75);">Intensive NIH-funded summer research training for high school students spanning five departments and two colleges across UWF.</p>
+              <p class="small" style="color:rgba(255,255,255,0.5);">
+                PI: Guttmann &bull; Co-PI: Schwartz<br>
+                Faculty: Pu, Cavnar, Tshiswaka, Rainey, Blalock, Lee
+              </p>
+              <a href="https://reporter.nih.gov/project-details/10974577" class="neuro-grant-link" target="_blank" rel="noopener noreferrer">
+                NIH Reporter <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
 
-          <div class="col-md-4 border-right px-md-3 mb-4">
-            <p class="neuro-grant-agency">NIH / NIA &bull; R01</p>
-            <h3 class="h5">Alzheimer's Disease Biomarker &amp; Neurodegeneration Research</h3>
-            <p class="small text-white-75"><strong>~$440,000</strong> &bull; Active — Year 5 of 6 (renewed 2024)</p>
-            <p class="small text-white-75">Investigating tau proteolysis, calpain signaling, and phage display biomarker discovery. More than 30 years of continuous NIH funding.</p>
-            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Guttmann</p>
+          <div class="col-md-4 mb-4">
+            <div class="neuro-grant-card">
+              <p class="neuro-grant-agency">NIH / NIA &bull; R15 (Renewal)</p>
+              <h3 class="h5">Identifying Biomarkers for Early Detection of Alzheimer's Disease Using Phage Display</h3>
+              <p class="small" style="color:rgba(255,255,255,0.75);">
+                <strong>R15AG066122-02</strong> &bull; $421,500 &bull; FY 2024<br>
+                Renewal of original award — Active
+              </p>
+              <p class="small" style="color:rgba(255,255,255,0.75);">Identifying blood-based biomarkers via phage display that can signal the onset of Alzheimer's disease years before symptoms appear.</p>
+              <p class="small" style="color:rgba(255,255,255,0.5);">PI: Guttmann &bull; University of West Florida</p>
+            </div>
           </div>
 
-          <div class="col-md-4 px-md-3 mb-4">
-            <p class="neuro-grant-agency">HRSA &bull; Implementation Grant</p>
-            <h3 class="h5">Community Health Worker Training Program</h3>
-            <p class="small text-white-75"><strong>$3,000,000</strong> &bull; 2022–2025</p>
-            <p class="small text-white-75">Equipping minority community health workers with training to address health disparities across Northwest Florida.</p>
-            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Tshiswaka</p>
+          <div class="col-md-4 mb-4">
+            <div class="neuro-grant-card">
+              <p class="neuro-grant-agency">NIH / NIA &bull; R15 (Original)</p>
+              <h3 class="h5">Identifying Biomarkers for Early Detection of Alzheimer's Disease Using Phage Display</h3>
+              <p class="small" style="color:rgba(255,255,255,0.75);">
+                <strong>R15AG066122-01</strong> &bull; $423,000 &bull; FY 2020<br>
+                Inaugural award — completed
+              </p>
+              <p class="small" style="color:rgba(255,255,255,0.75);">Foundational grant establishing phage display as a platform for Alzheimer's biomarker discovery at UWF, with continuous NIH support since then.</p>
+              <p class="small" style="color:rgba(255,255,255,0.5);">PI: Guttmann &bull; University of West Florida</p>
+            </div>
           </div>
 
-          <div class="col-md-4 border-right px-md-3 mb-4">
-            <p class="neuro-grant-agency">FL Dept. of Health &bull; Cancer Innovation Fund</p>
-            <h3 class="h5">NWF Collaborative to Reduce Breast Cancer Disparities</h3>
-            <p class="small text-white-75"><strong>$895,906</strong> &bull; Active since Jan. 2024</p>
-            <p class="small text-white-75">Addressing cancer mortality disparities across 18 rural counties in Northwest Florida through evaluation and monitoring.</p>
-            <p class="small" style="color:rgba(255,255,255,0.5);">Evaluation Lead: Tshiswaka</p>
+          <div class="col-md-4 mb-4">
+            <div class="neuro-grant-card">
+              <p class="neuro-grant-agency">HRSA &bull; Implementation Grant</p>
+              <h3 class="h5">Community Health Worker Training Program</h3>
+              <p class="small" style="color:rgba(255,255,255,0.75);"><strong>$3,000,000</strong> &bull; 2022–2025</p>
+              <p class="small" style="color:rgba(255,255,255,0.75);">Equipping minority community health workers with training to address health disparities across Northwest Florida.</p>
+              <p class="small" style="color:rgba(255,255,255,0.5);">PI: Tshiswaka</p>
+            </div>
           </div>
 
-          <div class="col-md-4 border-right px-md-3 mb-4">
-            <p class="neuro-grant-agency">NIH / NINDS &bull; Diversity Supplement</p>
-            <h3 class="h5">Research Supplement to Promote Diversity in Neuroscience</h3>
-            <p class="small text-white-75"><strong>$434,197</strong> &bull; 2013–2018</p>
-            <p class="small text-white-75">Supporting diversity in neurological research with community-level stroke literacy interventions in high-disparity populations.</p>
-            <p class="small" style="color:rgba(255,255,255,0.5);">PI: Tshiswaka</p>
+          <div class="col-md-4 mb-4">
+            <div class="neuro-grant-card">
+              <p class="neuro-grant-agency">FL Dept. of Health &bull; Cancer Innovation Fund</p>
+              <h3 class="h5">NWF Collaborative to Reduce Breast Cancer Disparities</h3>
+              <p class="small" style="color:rgba(255,255,255,0.75);"><strong>$895,906</strong> &bull; Active since Jan. 2024</p>
+              <p class="small" style="color:rgba(255,255,255,0.75);">Addressing cancer mortality disparities across 18 rural counties in Northwest Florida.</p>
+              <p class="small" style="color:rgba(255,255,255,0.5);">Evaluation Lead: Tshiswaka</p>
+            </div>
           </div>
 
-          <div class="col-md-4 px-md-3 mb-4">
-            <p class="neuro-grant-agency">UWF / AIMS Fellowship</p>
-            <h3 class="h5">Reubin O'D. Askew Institute Fellowship</h3>
-            <p class="small text-white-75"><strong>Active</strong> &bull; 2024–2027</p>
-            <p class="small text-white-75">Interdisciplinary fellowship supporting exercise-induced neuroprotection research and its applications to Alzheimer's and Parkinson's disease prevention.</p>
-            <p class="small" style="color:rgba(255,255,255,0.5);">Fellow: Lee</p>
+          <div class="col-md-4 mb-4">
+            <div class="neuro-grant-card">
+              <p class="neuro-grant-agency">UWF / AIMS Fellowship</p>
+              <h3 class="h5">Reubin O'D. Askew Institute Fellowship</h3>
+              <p class="small" style="color:rgba(255,255,255,0.75);"><strong>Active</strong> &bull; 2024–2027</p>
+              <p class="small" style="color:rgba(255,255,255,0.75);">Interdisciplinary fellowship supporting exercise-induced neuroprotection and its applications to Alzheimer's and Parkinson's disease prevention.</p>
+              <p class="small" style="color:rgba(255,255,255,0.5);">Fellow: Lee</p>
+            </div>
           </div>
 
         </div>
